@@ -1,5 +1,6 @@
 {pkgs}: {
   deps = [
+    pkgs.heroku
     pkgs.rustc
     pkgs.pkg-config
     pkgs.libxcrypt

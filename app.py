@@ -13,6 +13,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import create_engine
 from functools import wraps
 import sys
+from flask_migrate import Migrate
 
 # Configure logging with more detailed format
 logging.basicConfig(
@@ -61,6 +62,9 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
 
 # Initialize Flask-SQLAlchemy
 db.init_app(app)
+
+# Initialize Flask-Migrate
+migrate = Migrate(app, db)
 
 # Create engine and session factory with improved error handling
 def create_db_engine():
