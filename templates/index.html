@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandocs DataBank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>BrandocsDataBank</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#"><i class="bi bi-grid"></i> Vezérlőpult</a>
+                </li>
+                <li>
+                    <a href="/companies"><i class="bi bi-building"></i> Cégek</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-calendar"></i> Találkozók</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-chat"></i> Beszélgetések</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-file-text"></i> Dokumentumok</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-bar-chart"></i> Jelentések</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-gear"></i> Beállítások</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="ms-auto d-flex align-items-center">
+                        <span class="connection-status me-3">Az e-mail szerverrel a kapcsolat sikeres</span>
+                        <button class="btn" id="themeToggle">
+                            <i class="bi bi-sun-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Dashboard Content -->
+            <div class="container-fluid px-0">
+                <!-- Stats Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="bi bi-building"></i>
+                            <h5>Regisztrált cégek</h5>
+                            <p id="connectionStatus">0 cég</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="bi bi-file-pdf"></i>
+                            <h5>PDF fájlok</h5>
+                            <p id="pdfCount">0 PDF</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="bi bi-at"></i>
+                            <h5>E-mailek</h5>
+                            <p id="emailCount">0 e-mail</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="bi bi-clock-history"></i>
+                            <h5>Következő ellenőrzés</h5>
+                            <p id="lastCheck">10 mp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="search-bar">
+                    <div class="search-input">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control" placeholder="Keresés név vagy email alapján...">
+                    </div>
+                    <select class="form-select" style="width: auto;">
+                        <option>Minden státusz</option>
+                        <option>Aktív</option>
+                        <option>Függőben</option>
+                    </select>
+                    <button class="btn btn-light">
+                        <i class="bi bi-funnel"></i> További szűrők
+                    </button>
+                </div>
+
+                <!-- Email Data Table -->
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Küldő</th>
+                                    <th>PDF Csatolmány</th>
+                                    <th>Talált Email Címek</th>
+                                    <th>Dátum</th>
+                                    <th>Műveletek</th>
+                                </tr>
+                            </thead>
+                            <tbody id="emailTable">
+                                <!-- Email data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination Controls -->
+                    <div class="pagination-container">
+                        <div class="pagination-info">
+                            <span id="pageInfo">1-10 / 0 találat</span>
+                        </div>
+                        <div class="pagination-controls">
+                            <button class="btn btn-light" id="prevPage" disabled>
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="btn btn-light" id="nextPage" disabled>
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "name": "Email Monitor",
+  "description": "Email monitoring application with IMAP integration for automated processing and management of business communications",
+  "keywords": [
+    "python",
+    "flask",
+    "email",
+    "imap",
+    "pdf"
+  ],
+  "env": {
+    "FLASK_SECRET_KEY": {
+      "description": "A secret key for Flask application security",
+      "generator": "secret"
+    },
+    "BASIC_AUTH_USERNAME": {
+      "description": "Username for basic authentication",
+      "required": true
+    },
+    "BASIC_AUTH_PASSWORD": {
+      "description": "Password for basic authentication",
+      "required": true
+    },
+    "EMAIL_USERNAME": {
+      "description": "Email address for IMAP connection",
+      "required": true
+    },
+    "EMAIL_PASSWORD": {
+      "description": "Password for email account",
+      "required": true
+    },
+    "EMAIL_SERVER": {
+      "description": "IMAP server address",
+      "required": true
+    },
+    "SQLALCHEMY_POOL_SIZE": {
+      "description": "Maximum number of database connections in the pool",
+      "value": "5"
+    },
+    "SQLALCHEMY_MAX_OVERFLOW": {
+      "description": "Maximum number of connections that can be created beyond pool size",
+      "value": "10"
+    },
+    "SQLALCHEMY_POOL_TIMEOUT": {
+      "description": "Seconds to wait before giving up on getting a connection from the pool",
+      "value": "30"
+    },
+    "SQLALCHEMY_POOL_RECYCLE": {
+      "description": "Number of seconds after which a connection is automatically recycled",
+      "value": "280"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "as": "DATABASE"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}

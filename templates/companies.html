@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cégek - Brandocs DataBank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>BrandocsDataBank</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="/"><i class="bi bi-grid"></i> Vezérlőpult</a>
+                </li>
+                <li class="active">
+                    <a href="/companies"><i class="bi bi-building"></i> Cégek</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-calendar"></i> Találkozók</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-chat"></i> Beszélgetések</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-file-text"></i> Dokumentumok</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-bar-chart"></i> Jelentések</a>
+                </li>
+                <li>
+                    <a href="#" class="disabled"><i class="bi bi-gear"></i> Beállítások</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="ms-auto d-flex align-items-center">
+                        <button class="btn" id="themeToggle">
+                            <i class="bi bi-sun-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Companies Content -->
+            <div class="container-fluid px-0">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>Cégek</h4>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCompanyModal">
+                        <i class="bi bi-plus-lg me-2"></i> Új cég hozzáadása
+                    </button>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="search-bar">
+                    <div class="search-input">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control" placeholder="Keresés név vagy email alapján...">
+                    </div>
+                </div>
+
+                <!-- Companies Table -->
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Cégnév</th>
+                                    <th>Email címek</th>
+                                    <th>Emailek száma</th>
+                                    <th>Műveletek</th>
+                                </tr>
+                            </thead>
+                            <tbody id="companiesTable">
+                                <!-- Company data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Company Modal -->
+    <div class="modal fade" id="addCompanyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Új cég hozzáadása</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCompanyForm">
+                        <div class="mb-3">
+                            <label for="companyName" class="form-label">Cégnév</label>
+                            <input type="text" class="form-control" id="companyName" required>
+                        </div>
+                        <div id="emailInputs" class="mb-3">
+                            <label class="form-label">Email címek</label>
+                            <div class="email-input-group mb-2">
+                                <input type="email" class="form-control" name="companyEmails[]" required>
+                                <button type="button" class="btn btn-light ms-2 remove-email" style="display: none;">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-light" id="addEmailField">
+                            <i class="bi bi-plus-lg me-2"></i>További email cím
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
+                    <button type="button" class="btn btn-primary" id="saveCompany">Mentés</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/companies.js') }}"></script>
+</body>
+</html>

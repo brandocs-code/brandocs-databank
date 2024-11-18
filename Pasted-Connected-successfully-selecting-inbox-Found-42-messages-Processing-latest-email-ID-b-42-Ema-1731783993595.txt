@@ -1,0 +1,33 @@
+Connected successfully, selecting inbox...
+Found 42 messages
+Processing latest email (ID: b'42')
+Email details - Subject: er, From: info@activium.hu
+Connected successfully, selecting inbox...
+Check result: success=True, data={'subject': 'er', 'from': 'info@activium.hu', 'date': 'Sat, 16 Nov 2024 20:05:44 +0100', 'has_pdf': False, 'pdf_emails': []}
+Found 42 messages
+Processing latest email (ID: b'42')
+Email details - Subject: er, From: info@activium.hu
+Check result: success=True, data={'subject': 'er', 'from': 'info@activium.hu', 'date': 'Sat, 16 Nov 2024 20:05:44 +0100', 'has_pdf': False, 'pdf_emails': []}
+Database error in stats: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'Brandocs.mysql.pythonanywhere-services.com' (timed out)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.31.196.89 - - [16/Nov/2024 19:06:12] "GET /api/stats HTTP/1.1" 500 -
+Database error in stats: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'Brandocs.mysql.pythonanywhere-services.com' (timed out)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.31.196.89 - - [16/Nov/2024 19:06:15] "GET /api/stats HTTP/1.1" 500 -
+Error in check_latest: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'Brandocs.mysql.pythonanywhere-services.com' (timed out)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.31.196.89 - - [16/Nov/2024 19:06:20] "GET /check-latest HTTP/1.1" 200 -
+172.31.196.89 - - [16/Nov/2024 19:06:20] "GET /api/emails?page=1 HTTP/1.1" 200 -
+Error in check_latest: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'Brandocs.mysql.pythonanywhere-services.com' (timed out)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.31.196.89 - - [16/Nov/2024 19:06:21] "GET /check-latest HTTP/1.1" 200 -
+Checking for latest email...
+Attempting to connect to email server...
+Connected successfully, selecting inbox...
+Found 42 messages
+Processing latest email (ID: b'42')
+Email details - Subject: er, From: info@activium.hu
+Check result: success=True, data={'subject': 'er', 'from': 'info@activium.hu', 'date': 'Sat, 16 Nov 2024 20:05:44 +0100', 'has_pdf': False, 'pdf_emails': []}
+Database error in stats: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'Brandocs.mysql.pythonanywhere-services.com' (timed out)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.31.196.89 - - [16/Nov/2024 19:06:25] "GET /api/stats HTTP/1.1" 500 -
